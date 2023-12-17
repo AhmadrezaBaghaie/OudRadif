@@ -182,9 +182,15 @@ body {
   .playlist {
     width: 25%; /* Set the width of the playlist as needed */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for WebKit */
+    /* Hide the scrollbar */
     height: 95vh; /* Adjust the height as needed */
     padding: 20px;
     border-right: 1px solid #ccc;
+  }
+
+  .playlist::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar for WebKit */
   }
 
   /* Define larger font size for folder names */
@@ -199,6 +205,33 @@ body {
   font-weight: bold; /* Example: bold font for active track */
   /* Add other styles to highlight the active track */
 }
+
+
+
+
+/* Display the scrollable list underneath the player for smaller screens */
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .playlist {
+    display: block;
+    width: 95%; /* Set the width of the playlist as needed */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for WebKit */
+    /* Hide the scrollbar */
+    height: 50vh; /* Adjust the height as needed */
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+
+  .playlist::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar for WebKit */
+  }
+}
+
 
 
 
