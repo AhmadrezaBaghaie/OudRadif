@@ -7,7 +7,9 @@ body {
   }
   
   .player {
+    flex: 1;
     height: 95vh;
+    width: 50vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -160,3 +162,37 @@ body {
   i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
     cursor: pointer;
   }
+
+
+
+  .listItem {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .listItem:hover {
+    background-color: #f0f0f0;
+  }
+
+
+  .container {
+    display: flex;
+  }
+  
+  .playlist {
+    width: 25%; /* Set the width of the playlist as needed */
+    overflow-y: auto;
+    height: 95vh; /* Adjust the height as needed */
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+
+  /* Define larger font size for folder names */
+.folderName {
+  font-size: 1.5em; /* Adjust as needed */
+}
+
+
+
+  
