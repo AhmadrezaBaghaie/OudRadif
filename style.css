@@ -1,5 +1,5 @@
 body {
-    background-color: lightgreen;
+    background-color: #deb887;
   
     font-family: 'Lora', serif;
     /* Smoothly transition the background color */
@@ -9,7 +9,6 @@ body {
   .player {
     flex: 1;
     height: 95vh;
-    width: 50vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -191,6 +190,14 @@ body {
   /* Define larger font size for folder names */
 .folderName {
   font-size: 1.5em; /* Adjust as needed */
+}
+
+
+/* Define styles for the active track */
+.activeTrack {
+  background-color: #f0f0f0; /* Change background color or add other styles */
+  font-weight: bold; /* Example: bold font for active track */
+  /* Add other styles to highlight the active track */
 }
 
 

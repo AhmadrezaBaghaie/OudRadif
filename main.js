@@ -1511,7 +1511,7 @@ let track_list = [
 
 function random_bg_color() {
 
-  // Get a number between 64 to 256 (for getting lighter colors)
+  // Get a number between 128 to 256 (for getting lighter colors)
   let red = Math.floor(Math.random() * 256) + 128;
   let green = Math.floor(Math.random() * 256) + 128;
   let blue = Math.floor(Math.random() * 256) + 128;
@@ -1537,7 +1537,7 @@ function loadTrack(track_index) {
 
   updateTimer = setInterval(seekUpdate, 1000);
   curr_track.addEventListener("ended", nextTrack);
-  random_bg_color();
+  //random_bg_color();
 }
 
 function resetValues() {
@@ -1566,15 +1566,27 @@ function createScrollableList() {
     trackItem.textContent = `${spaces} ${track.name}`;
     trackItem.classList.add('listItem', 'trackItem');
     trackItem.addEventListener('click', function() {
-      loadTrack(index);
+      track_index = index;
+      loadTrack(track_index);
       playTrack();
-
+      highlightTrack(track_index);
     });
 
     trackListContainer.appendChild(trackItem);
   });
 }
 
+
+function highlightTrack(index) {
+  const trackItems = document.querySelectorAll('.trackItem');
+  trackItems.forEach((item, idx) => {
+    if (idx === index) {
+      item.classList.add('activeTrack'); // Apply a class to highlight the active track
+    } else {
+      item.classList.remove('activeTrack'); // Remove the class from other tracks
+    }
+  });
+}
 
 
 
@@ -1601,6 +1613,7 @@ function playTrack() {
   curr_track.play();
   isPlaying = true;
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+  highlightTrack(track_index);
 }
 
 function pauseTrack() {
@@ -1615,6 +1628,7 @@ function nextTrack() {
   else track_index = 0;
   loadTrack(track_index);
   playTrack();
+  highlightTrack(track_index);
 }
 
 function prevTrack() {
@@ -1623,6 +1637,7 @@ function prevTrack() {
   else track_index = track_list.length;
   loadTrack(track_index);
   playTrack();
+  highlightTrack(track_index);
 }
 
 function seekTo() {
